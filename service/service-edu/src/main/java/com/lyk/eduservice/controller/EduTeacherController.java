@@ -1,9 +1,12 @@
 package com.lyk.eduservice.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.lyk.eduservice.entity.EduTeacher;
+import com.lyk.eduservice.service.EduTeacherService;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -14,8 +17,28 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2022-08-12
  */
 @RestController
-@RequestMapping("/eduservice/eduTeacher")
+@RequestMapping("/eduservice/teacher")
 public class EduTeacherController {
+
+    @Resource
+    private EduTeacherService eduTeacherService;
+
+    //讲师列表
+    @GetMapping("/findAll")
+    public List<EduTeacher> findAll(){
+        List<EduTeacher> list = eduTeacherService.list(null);
+        return list;
+    }
+
+    //逻辑删除讲师方法
+    @DeleteMapping("removeById/{id}")
+    public boolean removeById(@PathVariable String id){
+        boolean flag = eduTeacherService.removeById(id);
+        return flag;
+    }
+
+
+
 
 }
 
