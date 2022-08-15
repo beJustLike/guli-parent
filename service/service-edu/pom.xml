@@ -11,5 +11,20 @@
 
     <artifactId>service-edu</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.lyk</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lyk</groupId>
+            <artifactId>service_base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
 
 </project>

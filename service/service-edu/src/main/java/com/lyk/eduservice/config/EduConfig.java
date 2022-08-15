@@ -6,8 +6,6 @@ import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-
 /**
  * @Author liyongkang
  * @Date 2022/8/12
@@ -19,8 +17,8 @@ import org.springframework.context.annotation.Profile;
 public class EduConfig {
 
     //SQL 执行性能分析插件。开发环境使用，线上不推荐。 maxTime 指的是 sql 最大执行时长
-    @Bean
-    @Profile({"dev","test"})
+//    @Bean
+//    @Profile({"dev","test"})
     public PerformanceInterceptor performanceInterceptor(){
 
         PerformanceInterceptor performanceInterceptor = new PerformanceInterceptor();
@@ -30,7 +28,7 @@ public class EduConfig {
         return performanceInterceptor;
     }
 
-    //逻辑删除组件
+    //逻辑删除插件，只有注册了逻辑删除插件才能通过注解的方式实现逻辑删除功能
     @Bean
     public ISqlInjector sqlInjector(){
         return new LogicSqlInjector();
