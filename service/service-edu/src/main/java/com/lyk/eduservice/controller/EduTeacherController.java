@@ -1,8 +1,8 @@
 package com.lyk.eduservice.controller;
 
-
 import com.lyk.eduservice.entity.EduTeacher;
 import com.lyk.eduservice.service.EduTeacherService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/eduservice/teacher")
+@Api(tags = "讲师模块")
 public class EduTeacherController {
 
     @Resource
